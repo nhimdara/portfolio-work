@@ -1,10 +1,11 @@
 import React from 'react'
-import Navbar from './components/Navbar'
+import Navbar from './components/header/Navbar'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './components/index/Home'
-import About from './components/index/About'
-import Experience from './components/index/Experience'
-import Resume from './components/index/Resume'
+import Home from './components/header/Home'
+import About from './components/header/About'
+import Experience from './components/header/Experience'
+import Footer from './components/header/Footer'
+import Skill from './components/header/Skill'
 
 const App = () => {
   return (
@@ -15,8 +16,9 @@ const App = () => {
           <Route path="/" element={<Home/>}/>
           <Route path="/about" element={<About/>}/>
           <Route path="/experience" element={<Experience/>}/>
-          <Route path="/resume" element={<Resume/>} />
+          <Route path="/skill" element={<Skill />}/>
         </Routes>
+        <Footer/>
       </Router>
     </div>
   )
