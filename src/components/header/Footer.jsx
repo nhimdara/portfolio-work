@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import {
   FaFacebook,
   FaTwitter,
@@ -14,10 +13,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   const quickLinks = [
-    { name: "Home", path: "/" },
-    { name: "About Me", path: "/about" },
-    { name: "Experience", path: "/experience" },
-    { name: "Resume", path: "/resume" },
+    { name: "Home", path: "#home" },
+    { name: "About Me", path: "#about" },
+    { name: "Experience", path: "#experience" },
+    { name: "Skill", path: "#skill" },
     { name: "Contact", path: "tel:+855969923931" },
   ];
 
@@ -45,7 +44,7 @@ const Footer = () => {
   ];
 
   return (
-    <footer className="relative bg-gray-950 text-white">
+    <footer className="relative bg-gray-950 text-white scroll-reveal">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-20 py-12 md:py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12">
           {/* Stay Connected Section */}
@@ -68,12 +67,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.path}
+                  <a
+                    href={link.path}
                     className="text-gray-400 hover:text-cyan-400 transition-colors duration-300 text-sm md:text-base"
                   >
                     {link.name}
-                  </Link>
+                  </a>
                 </li>
               ))}
             </ul>
@@ -92,7 +91,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-3 text-gray-400">
                 <FaPhone className="text-cyan-400 flex-shrink-0" />
-                    <a
+                <a
                   href="tel:+855969923931"
                   className="hover:text-cyan-400 transition-colors text-sm md:text-base"
                 >

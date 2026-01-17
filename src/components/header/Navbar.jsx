@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useRef } from "react";
+// Navbar.jsx - Only change the navigation part
+// Remove react-router imports and usage
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { IoCall } from "react-icons/io5";
 import { HiMenu } from "react-icons/hi";
 import { IoClose } from "react-icons/io5";
-import { NavLink, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const location = useLocation();
+  const [isOpen, setIsOpen] = useState(false);
   const mobileMenuRef = useRef(null);
   const menuButtonRef = useRef(null);
 
@@ -34,11 +34,18 @@ const Navbar = () => {
     }
   }, []);
 
+  // Navigation items - keep as buttons or anchor tags with hash
+  const navItems = [
+    { id: "home", label: "Home" },
+    { id: "about", label: "About" },
+    { id: "experience", label: "Experience" },
+    { id: "skill", label: "Skill" },
+  ];
+
   // Lock scroll when mobile menu is open
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      // Add event listeners with a small delay to avoid immediate triggering
       const timer = setTimeout(() => {
         document.addEventListener("mousedown", handleClickOutside);
         document.addEventListener("keydown", handleEscapeKey);
@@ -61,25 +68,6 @@ const Navbar = () => {
     };
   }, [isOpen, handleClickOutside, handleEscapeKey]);
 
-  // Close menu on route change
-  useEffect(() => {
-    closeMobileMenu();
-  }, [location, closeMobileMenu]);
-
-  // Navigation items
-  const navItems = [
-    { path: "/", label: "Home" },
-    { path: "/about", label: "About" },
-    { path: "/experience", label: "Experience" },
-    { path: "/skill", label: "Skill" },
-  ];
-
-  // Active link styles
-  const getNavLinkClass = (isActive) =>
-    `hover:font-bold transition-all duration-200 ${
-      isActive ? "text-cyan-400 font-bold" : ""
-    }`;
-
   return (
     <nav
       className="sticky top-0 z-50 w-full h-[70px] px-4 md:px-10 lg:px-20 bg-gray-900 shadow-2xl"
@@ -88,29 +76,28 @@ const Navbar = () => {
       <div className="flex justify-between items-center h-full max-w-7xl mx-auto">
         {/* Logo */}
         <div className="text-xl md:text-2xl font-bold text-white">
-          <NavLink
-            to="/"
+          <a
+            href="#home"
             className="hover:text-cyan-400 transition-colors duration-200"
             onClick={closeMobileMenu}
             aria-label="Homepage"
           >
             Nhim Dara
-          </NavLink>
+          </a>
         </div>
 
         {/* Desktop Navigation */}
         <div className="hidden lg:block" role="navigation" aria-label="Desktop menu">
           <ul className="flex gap-6 lg:gap-10 text-white transition-all">
             {navItems.map((item) => (
-              <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) => getNavLinkClass(isActive)}
-                  end={item.path === "/"}
-                  aria-current={item.path === "/" ? "page" : undefined}
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className="hover:font-bold transition-all duration-200 hover:text-cyan-400"
+                  onClick={closeMobileMenu}
                 >
                   {item.label}
-                </NavLink>
+                </a>
               </li>
             ))}
           </ul>
@@ -162,18 +149,14 @@ const Navbar = () => {
         <div className="container mx-auto px-4 py-6 h-[calc(100vh-70px)] overflow-y-auto">
           <ul className="flex flex-col gap-4 mb-6">
             {navItems.map((item) => (
-              <li key={item.path}>
-                <NavLink
-                  to={item.path}
-                  className={({ isActive }) =>
-                    `block py-3 px-4 rounded-lg hover:bg-gray-800 transition-all duration-200 ${getNavLinkClass(isActive)}`
-                  }
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
                   onClick={closeMobileMenu}
-                  end={item.path === "/"}
-                  aria-current={item.path === "/" ? "page" : undefined}
+                  className="block py-3 px-4 rounded-lg hover:bg-gray-800 hover:text-cyan-400 transition-all duration-200"
                 >
                   {item.label}
-                </NavLink>
+                </a>
               </li>
             ))}
           </ul>

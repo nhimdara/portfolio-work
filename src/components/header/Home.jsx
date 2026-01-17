@@ -2,7 +2,6 @@ import React from "react";
 import myPic from "../assets/image/myPicture.jpg";
 import TextType from "../assets/animtion/TextType";
 import { Share2 } from "lucide-react";
-
 import {
   FaFacebook,
   FaInstagram,
@@ -30,7 +29,7 @@ const Home = () => {
   };
 
   return (
-    <div className="bg-gray-900 min-h-screen">
+    <div className="bg-gray-900 min-h-screen scroll-gradient">
       <div className="relative overflow-hidden">
         {/* Floating Animated Background */}
         <div className="absolute inset-0 z-0 pointer-events-none">
@@ -42,13 +41,13 @@ const Home = () => {
           id="home"
           className="relative z-10 px-4 sm:px-6 md:px-10 lg:px-20 py-8 sm:py-12 lg:py-24"
         >
-          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row justify-between items-center gap-8 lg:gap-12 max-w-7xl mx-auto ">
             {/* Left Content */}
-            <div className="text-white w-full lg:w-1/2 space-y-4 md:space-y-6">
+            <div className="text-white w-full lg:w-1/2 space-y-4 md:space-y-6 scroll-reveal">
               <h1 className="text-lg sm:text-xl md:text-2xl font-medium">
                 Hello, It's Me
               </h1>
-              <h2 className="text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
+              <h2 className=" text-3xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight">
                 Nhim Dara
               </h2>
 
@@ -69,14 +68,17 @@ const Home = () => {
               </div>
 
               <p className="text-gray-300 leading-relaxed max-w-xl text-sm sm:text-base md:text-lg">
-                A frontend developer trained at ETEC Center, gaining hands-on
+                A frontend developer trained at ETAC Center, gaining hands-on
                 experience in modern web technologies. I build scalable
                 interfaces and turn design concepts into functional, accessible
                 web applications.
               </p>
 
               {/* Social Links */}
-              <div className="flex gap-3 md:gap-4 pt-2">
+              <div
+                className="flex gap-3 md:gap-4 pt-2 scroll-reveal"
+                style={{ transitionDelay: "100ms" }}
+              >
                 <a
                   href="https://facebook.com/dara.nhim.865637"
                   target="_blank"
@@ -113,31 +115,34 @@ const Home = () => {
 
               {/* Action Buttons - Fixed structure */}
               <div className="flex flex-col lg:flex-row justify-between items-center gap-12 max-w-7xl mx-auto">
-              <div className="flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4  pt-4">
-                <button
-                  onClick={handleLetstalk}
-                  className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 text-white font-bold rounded-full border-2 border-white/20 hover:border-cyan-400/50 transition-all duration-300 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base cursor-pointer"
+                <div
+                  className="flex flex-col xs:flex-row sm:flex-row gap-3 sm:gap-4  pt-4 scroll-reveal"
+                  style={{ transitionDelay: "200ms" }}
                 >
-                  <span>Let's Talk</span>
-                  <Share2
-                    size={18}
-                    className="sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform"
-                  />
-                </button>
+                  <button
+                    onClick={handleLetstalk}
+                    className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 text-white font-bold rounded-full border-2 border-white/20 hover:border-cyan-400/50 transition-all duration-300 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base cursor-pointer"
+                  >
+                    <span>Let's Talk</span>
+                    <Share2
+                      size={18}
+                      className="sm:w-5 sm:h-5 group-hover:rotate-12 transition-transform"
+                    />
+                  </button>
 
-                <button
-                  onClick={handleDownloadCV}
-                  className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 text-white font-bold rounded-full border-2 border-white/20 hover:border-cyan-400/50 transition-all duration-300 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base cursor-pointer"
-                >
-                  <span>Download CV</span>
-                </button>
-              </div>
+                  <button
+                    onClick={handleDownloadCV}
+                    className="group relative px-6 sm:px-8 py-3 sm:py-4 bg-gray-900 text-white font-bold rounded-full border-2 border-white/20 hover:border-cyan-400/50 transition-all duration-300 shadow-lg shadow-pink-500/20 hover:shadow-pink-500/40 flex items-center justify-center gap-2 sm:gap-3 text-sm sm:text-base cursor-pointer"
+                  >
+                    <span>Download CV</span>
+                  </button>
+                </div>
               </div>
             </div>
 
             {/* Profile Image */}
             <div className="lg:w-1/2 flex justify-center mt-8 lg:mt-0">
-              <div className="relative group">
+              <div className="relative group scroll-scale">
                 <img
                   src={myPic}
                   alt="Nhim Dara Profile"

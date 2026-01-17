@@ -1,10 +1,7 @@
 import React from "react";
-import FloatingIcons from "../assets/animtion/FloatingIcons";
-
 import { GraduationCap, Code } from "lucide-react";
 
-const Home = () => {
-
+const Experience1 = () => {
   const education = [
     {
       year: "2024 - Present",
@@ -16,8 +13,7 @@ const Home = () => {
       year: "2025",
       degree: "Frontend Development Studying",
       institution: "ETEC Center",
-      description:
-        "Completed intensive React.js and modern web development course",
+      description: "Completed intensive React.js and modern web development course",
     },
   ];
 
@@ -32,25 +28,23 @@ const Home = () => {
     {
       year: "2024 - 2025",
       role: "DataEntry",
-      company: "MoEYS Edtech(Volunteer)",
+      company: "MoEYS Edtech (Volunteer)",
       description:
         "Managed high-volume, confidential data entry and systematic record-keeping using Excel and various databases to ensure accuracy and efficient workflow.",
     },
   ];
 
   return (
-    <div className="bg-gray-900">
-      {/* Floating Animated Background */}
-      <div className="absolute inset-0 z-0 pointer-events-none">
-        <FloatingIcons />
-      </div>
-      <section className="relative">
-      {/* Education & Experience Section */}
-      <section className="py-16 px-4">
-        <div className="max-w-7xl mx-auto">
+    <div className="bg-gray-900 min-h-screen scroll-gradient">
+      <section className="relative py-16 px-4">
+        {/* Background Elements */}
+        <div className="absolute top-1/4 left-10 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-1/4 right-10 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
+
+        <div className="max-w-7xl mx-auto relative z-10 scroll-reveal">
           <div className="grid md:grid-cols-2 gap-12">
             {/* Education */}
-            <div>
+            <div className="relative">
               <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
                 <GraduationCap className="w-8 h-8 text-cyan-400" />
                 Education
@@ -79,7 +73,7 @@ const Home = () => {
             </div>
 
             {/* Experience */}
-            <div>
+            <div className="relative">
               <h2 className="text-3xl font-bold text-white mb-8 flex items-center gap-3">
                 <Code className="w-8 h-8 text-cyan-400" />
                 Experience
@@ -112,15 +106,15 @@ const Home = () => {
 
       {/* Philosophy Section */}
       <section className="py-10 px-4">
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center ">
           <div className="relative">
             <div className="absolute -top-6 -left-6 w-12 h-12 bg-blue-500/20 rounded-full blur-xl"></div>
             <div className="absolute -bottom-6 -right-6 w-12 h-12 bg-purple-500/20 rounded-full blur-xl"></div>
 
-            <blockquote className="relative z-10">
+            <blockquote className="relative z-10 scroll-reveal">
               <p className="text-2xl md:text-3xl text-gray-300 italic mb-6">
-                "Great web experiences are born from the perfect blend of clean
-                code, thoughtful design, and user-centered thinking."
+                "Great web experiences are born from the perfect blend of
+                clean code, thoughtful design, and user-centered thinking."
               </p>
               <footer className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">
                 — Nhim Dara
@@ -129,38 +123,8 @@ const Home = () => {
           </div>
         </div>
       </section>
-      </section>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        @keyframes scroll-right {
-          0% {
-            transform: translateX(-50%);
-          }
-          100% {
-            transform: translateX(0);
-          }
-        }
-        .animate-scroll-left {
-          animation: scroll-left 30s linear infinite;
-        }
-        .animate-scroll-right {
-          animation: scroll-right 30s linear infinite;
-        }
-        .animate-scroll-left:hover,
-        .animate-scroll-right:hover {
-          animation-play-state: paused;
-        }
-      `}</style>
     </div>
   );
 };
 
-export default Home;
+export default Experience1;

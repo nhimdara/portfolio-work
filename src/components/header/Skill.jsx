@@ -50,47 +50,15 @@ const Skill = () => {
     return "Beginner";
   };
 
-  // Add CSS animations for scrolling
-  React.useEffect(() => {
-    // Add animation styles to document
-    const style = document.createElement('style');
-    style.textContent = `
-      @keyframes scroll-left {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      @keyframes scroll-right {
-        0% { transform: translateX(-50%); }
-        100% { transform: translateX(0); }
-      }
-      .animate-scroll-left {
-        animation: scroll-left 30s linear infinite;
-        min-width: 200%; /* Ensure seamless looping */
-      }
-      .animate-scroll-right {
-        animation: scroll-right 30s linear infinite;
-        min-width: 200%;
-      }
-      .animate-scroll-left:hover,
-      .animate-scroll-right:hover {
-        animation-play-state: paused;
-      }
-    `;
-    document.head.appendChild(style);
-    
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
-
   return (
-    <div className="bg-gray-900 min-h-screen pt-10"> {/* Added padding for fixed navbar */}
+    <div className="bg-gray-900 min-h-screen pt-10">
       {/* Floating Background Icons */}
       <div className="absolute inset-0 z-0 pointer-events-none">
         <FloatingIcons />
       </div>
-        <div className="relative">
-        <section className="mb-5">
+
+      <div className="relative">
+        <section className="mb-5 scroll-reveal">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-white mb-12">
             Technology <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Stack</span>
           </h2>
@@ -101,7 +69,7 @@ const Skill = () => {
             <div className="flex overflow-hidden mb-8">
               <div className="flex animate-scroll-left whitespace-nowrap">
                 {[...techStack, ...techStack].map((tech, idx) => (
-                    <div
+                  <div
                     key={`left-${idx}`}
                     className="flex flex-col items-center mx-6 md:mx-10 group"
                   >
@@ -120,7 +88,7 @@ const Skill = () => {
             <div className="flex overflow-hidden">
               <div className="flex animate-scroll-right whitespace-nowrap">
                 {[...techStack, ...techStack].map((tech, idx) => (
-                    <div
+                  <div
                     key={`right-${idx}`}
                     className="flex flex-col items-center mx-6 md:mx-10 group"
                   >
@@ -136,12 +104,12 @@ const Skill = () => {
             </div>
           </div>
         </section>
-        </div>
-        {/* Technology Stack Section */}
+      </div>
 
+      {/* Technology Stack Section */}
       <div className="relative z-10 container mx-auto px-4 md:px-6 lg:px-8 py-5">
         {/* Skills Section */}
-        <section>
+        <section className="scroll-reveal">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-white mb-12">
             My <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">Skills</span>
           </h2>
@@ -229,6 +197,35 @@ const Skill = () => {
           </div>
         </section>
       </div>
+
+      <style jsx>{`
+        @keyframes scroll-left {
+          0% {
+            transform: translateX(0);
+          }
+          100% {
+            transform: translateX(-50%);
+          }
+        }
+        @keyframes scroll-right {
+          0% {
+            transform: translateX(-50%);
+          }
+          100% {
+            transform: translateX(0);
+          }
+        }
+        .animate-scroll-left {
+          animation: scroll-left 30s linear infinite;
+        }
+        .animate-scroll-right {
+          animation: scroll-right 30s linear infinite;
+        }
+        .animate-scroll-left:hover,
+        .animate-scroll-right:hover {
+          animation-play-state: paused;
+        }
+      `}</style>
     </div>
   );
 };
