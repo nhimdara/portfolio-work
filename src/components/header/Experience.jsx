@@ -15,7 +15,7 @@ const Home = () => {
     {
       year: "2025",
       degree: "Frontend Development Studying",
-      institution: "ETAC Center",
+      institution: "ETEC Center",
       description:
         "Completed intensive React.js and modern web development course",
     },
@@ -25,12 +25,12 @@ const Home = () => {
     {
       year: "2025",
       role: "Frontend Developer Trainee",
-      company: "ETAC Center",
+      company: "ETEC Center",
       description:
         "Developed responsive web applications using React.js, Tailwind CSS, and modern JavaScript frameworks",
     },
     {
-      year: "2024",
+      year: "2024 - 2025",
       role: "DataEntry",
       company: "MoEYS Edtech(Volunteer)",
       description:

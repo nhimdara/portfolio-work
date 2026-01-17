@@ -69,7 +69,7 @@ const Home = () => {
               </div>
 
               <p className="text-gray-300 leading-relaxed max-w-xl text-sm sm:text-base md:text-lg">
-                A frontend developer trained at ETAC Center, gaining hands-on
+                A frontend developer trained at ETEC Center, gaining hands-on
                 experience in modern web technologies. I build scalable
                 interfaces and turn design concepts into functional, accessible
                 web applications.
